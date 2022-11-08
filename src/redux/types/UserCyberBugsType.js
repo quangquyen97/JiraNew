@@ -1,0 +1,6 @@
+export const GET_USER_SEARCH = 'GET_USER_SEARCH';
+export const CREATE_TASK = 'CREATE_TASK';
+export const GET_USER_BY_PROJECT_ID = 'GET_USER_BY_PROJECT';
+export const GET_USER_SEARCH_BY_PROJECT_ID = 'GET_USER_SEARCH_BY_PROJECT_ID';
+export const LOGIN = 'LOGIN';
+export const USER_LOGIN = 'USER_LOGIN';

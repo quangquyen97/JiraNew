@@ -1,19 +1,49 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from './component/Home/Header/Header';
-import Home from './page/Home/Home';
-import { LoginTemplate } from './templates/HomeTemplate/LoginTemplate';
+import { Router, Switch } from "react-router-dom";
 
+import { UserLoginTemplate } from "./templates/HomeTemplate/UserLoginTemplate";
+import { createBrowserHistory } from "history";
+import IndexCyberBugs from "./component/Cyberbugs/IndexCyberBugs";
+import DrawerCyberBugs from "./HOC/CyberbugsHOC/DrawerCyberBugs";
+import LoginCyberBugs from "./page/LoginCyberBugs/LoginCyberBugs";
 
+import CreateProject from "./page/Cyberbugs/CreateProject/CreateProject";
+import ProjectManagement from "./page/Cyberbugs/ProjectManagement/ProjectManagement";
+import { CyberbugsTemplate } from "./templates/HomeTemplate/CyberbugsTemplate";
+import RegisterCyberBugs from "./page/RegisterCyberBugs/RegisterCyberBugs";
+
+export const history = createBrowserHistory();
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
+      <DrawerCyberBugs />
+
       <Switch>
-        <Route exact path='/home' Component={Home} />
-        <Route exact path='/' Component={Home} />
-        <LoginTemplate exact path="/header" Component={Header} />
+        <UserLoginTemplate exact path="/login" Component={LoginCyberBugs} />
+        <UserLoginTemplate
+          exact
+          path="/register"
+          Component={RegisterCyberBugs}
+        />
+
+        <CyberbugsTemplate exact path="/" Component={ProjectManagement} />
+        <CyberbugsTemplate
+          exact
+          path="/createproject"
+          Component={CreateProject}
+        />
+        <CyberbugsTemplate
+          exact
+          path="/projectmanagement"
+          Component={ProjectManagement}
+        />
+        <CyberbugsTemplate
+          exact
+          path="/projectdetail/:projectId"
+          Component={IndexCyberBugs}
+        />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
 

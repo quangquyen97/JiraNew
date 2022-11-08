@@ -1,0 +1,2 @@
+export const USLOGIN = "USLOGIN"
+export const PUT_PROJECT_DETAIL = 'PUT_PROJECT_DETAIL'
